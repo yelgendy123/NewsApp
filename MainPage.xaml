@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="New_App.MainPage"
+             NavigationPage.HasNavigationBar="False">
+    <Grid RowDefinitions="Auto,Auto,*" BackgroundColor="White" >
+        
+        <Label Grid.Row="0"
+               Text="EXECLUSIVE NEWS"
+               BackgroundColor="White"
+               FontSize="Large"
+              FontFamily="Christmas.otf"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"/> 
+        <CollectionView Grid.Row="1" x:Name="NewsCat" HeightRequest="60" SelectionMode="Single"
+                        SelectionChanged="NewsCat_SelectionChanged">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Horizontal" ItemSpacing="10"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Label FontSize="Medium"
+                             Text="{Binding Name}"  
+                               BackgroundColor="White"
+                               />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            
+        </CollectionView>
+        <CollectionView Grid.Row="2" x:Name="execnews" SelectionMode="Single" SelectionChanged="execnews_SelectionChanged" >
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" ItemSpacing="15"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Label FontSize="Medium"
+                             Text="{Binding Title }"
+                               FontFamily="Christmas.otf"
+                               BackgroundColor="White"
+                               />
+                        <Image HeightRequest="150"
+                               Source="{Binding Image}"
+                               Aspect="Fill"/>
+
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+    </Grid>
+
+    
+
+</ContentPage>
